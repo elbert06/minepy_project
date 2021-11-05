@@ -1,0 +1,1220 @@
+---- Minecraft Crash Report ----
+// Don't be sad, have a hug! <3
+
+Time: 21. 11. 1. 오후 10:39
+Description: Watching Server
+
+java.lang.Error: Watchdog
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.unpark(Native Method)
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:160)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.signalWork(ForkJoinPool.java:1493)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.externalPush(ForkJoinPool.java:1903)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.externalSubmit(ForkJoinPool.java:1921)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.execute(ForkJoinPool.java:2453)
+	at app//net.minecraft.server.v1_16_R3.ThreadedMailbox.f(SourceFile:122)
+	at app//net.minecraft.server.v1_16_R3.ThreadedMailbox.a(SourceFile:115)
+	at app//net.minecraft.server.v1_16_R3.ChunkTaskQueueSorter.a(SourceFile:125)
+	at app//net.minecraft.server.v1_16_R3.ChunkTaskQueueSorter.a(SourceFile:91)
+	at app//net.minecraft.server.v1_16_R3.ChunkTaskQueueSorter$$Lambda$3552/0x0000000100b44040.accept(Unknown Source)
+	at app//net.minecraft.server.v1_16_R3.Mailbox$1.a(SourceFile:44)
+	at app//net.minecraft.server.v1_16_R3.LightEngineThreaded.a(SourceFile:105)
+	at app//net.minecraft.server.v1_16_R3.LightEngineThreaded.a(SourceFile:101)
+	at app//net.minecraft.server.v1_16_R3.LightEngineThreaded.a(SourceFile:62)
+	at app//net.minecraft.server.v1_16_R3.World.a(World.java:260)
+	at app//net.minecraft.server.v1_16_R3.World.setTypeAndData(World.java:213)
+	at app//net.minecraft.server.v1_16_R3.EntityFallingBlock.tick(EntityFallingBlock.java:132)
+	at app//net.minecraft.server.v1_16_R3.WorldServer.entityJoinedWorld(WorldServer.java:645)
+	at app//net.minecraft.server.v1_16_R3.WorldServer$$Lambda$4182/0x0000000100d52840.accept(Unknown Source)
+	at app//net.minecraft.server.v1_16_R3.World.a(World.java:669)
+	at app//net.minecraft.server.v1_16_R3.WorldServer.doTick(WorldServer.java:390)
+	at app//net.minecraft.server.v1_16_R3.MinecraftServer.b(MinecraftServer.java:1046)
+	at app//net.minecraft.server.v1_16_R3.DedicatedServer.b(DedicatedServer.java:342)
+	at app//net.minecraft.server.v1_16_R3.MinecraftServer.a(MinecraftServer.java:964)
+	at app//net.minecraft.server.v1_16_R3.MinecraftServer.w(MinecraftServer.java:812)
+	at app//net.minecraft.server.v1_16_R3.MinecraftServer.lambda$0(MinecraftServer.java:155)
+	at app//net.minecraft.server.v1_16_R3.MinecraftServer$$Lambda$3232/0x00000001008d0040.run(Unknown Source)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server Watchdog
+Stacktrace:
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.unpark(Native Method)
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:160)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.signalWork(ForkJoinPool.java:1493)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.externalPush(ForkJoinPool.java:1903)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.externalSubmit(ForkJoinPool.java:1921)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.execute(ForkJoinPool.java:2453)
+	at app//net.minecraft.server.v1_16_R3.ThreadedMailbox.f(SourceFile:122)
+	at app//net.minecraft.server.v1_16_R3.ThreadedMailbox.a(SourceFile:115)
+	at app//net.minecraft.server.v1_16_R3.ChunkTaskQueueSorter.a(SourceFile:125)
+	at app//net.minecraft.server.v1_16_R3.ChunkTaskQueueSorter.a(SourceFile:91)
+	at app//net.minecraft.server.v1_16_R3.ChunkTaskQueueSorter$$Lambda$3552/0x0000000100b44040.accept(Unknown Source)
+	at app//net.minecraft.server.v1_16_R3.Mailbox$1.a(SourceFile:44)
+	at app//net.minecraft.server.v1_16_R3.LightEngineThreaded.a(SourceFile:105)
+	at app//net.minecraft.server.v1_16_R3.LightEngineThreaded.a(SourceFile:101)
+	at app//net.minecraft.server.v1_16_R3.LightEngineThreaded.a(SourceFile:62)
+	at app//net.minecraft.server.v1_16_R3.World.a(World.java:260)
+	at app//net.minecraft.server.v1_16_R3.World.setTypeAndData(World.java:213)
+	at app//net.minecraft.server.v1_16_R3.EntityFallingBlock.tick(EntityFallingBlock.java:132)
+	at app//net.minecraft.server.v1_16_R3.WorldServer.entityJoinedWorld(WorldServer.java:645)
+	at app//net.minecraft.server.v1_16_R3.WorldServer$$Lambda$4182/0x0000000100d52840.accept(Unknown Source)
+	at app//net.minecraft.server.v1_16_R3.World.a(World.java:669)
+	at app//net.minecraft.server.v1_16_R3.WorldServer.doTick(WorldServer.java:390)
+	at app//net.minecraft.server.v1_16_R3.MinecraftServer.b(MinecraftServer.java:1046)
+	at app//net.minecraft.server.v1_16_R3.DedicatedServer.b(DedicatedServer.java:342)
+	at app//net.minecraft.server.v1_16_R3.MinecraftServer.a(MinecraftServer.java:964)
+	at app//net.minecraft.server.v1_16_R3.MinecraftServer.w(MinecraftServer.java:812)
+	at app//net.minecraft.server.v1_16_R3.MinecraftServer.lambda$0(MinecraftServer.java:155)
+
+-- Thread Dump --
+Details:
+	Threads: "Reference Handler" daemon prio=10 Id=2 RUNNABLE
+	at java.base@11.0.11/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+	at java.base@11.0.11/java.lang.ref.Reference.processPendingReferences(Reference.java:241)
+	at java.base@11.0.11/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:213)
+
+
+"Finalizer" daemon prio=8 Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@22e72b88
+	at java.base@11.0.11/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@22e72b88
+	at java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	at java.base@11.0.11/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:170)
+
+
+"Signal Dispatcher" daemon prio=9 Id=4 RUNNABLE
+
+
+"Attach Listener" daemon prio=5 Id=5 RUNNABLE
+
+
+"Common-Cleaner" daemon prio=8 Id=11 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@2c20d1a4
+	at java.base@11.0.11/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@2c20d1a4
+	at java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@11.0.11/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:148)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+	at java.base@11.0.11/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:134)
+
+
+"Worker-Bootstrap-1" daemon prio=5 Id=14 WAITING on java.util.concurrent.ForkJoinPool@281f40f8
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@281f40f8
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1628)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Worker-Bootstrap-2" daemon prio=5 Id=15 TIMED_WAITING on java.util.concurrent.ForkJoinPool@281f40f8
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@281f40f8
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:275)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1619)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Timer hack thread" daemon prio=5 Id=17 TIMED_WAITING
+	at java.base@11.0.11/java.lang.Thread.sleep(Native Method)
+	at app//net.minecraft.server.v1_16_R3.SystemUtils$6.run(SourceFile:636)
+
+
+"Worker-Main-4" daemon prio=5 Id=19 TIMED_WAITING on java.util.concurrent.ForkJoinPool@6d1ddb9f
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@6d1ddb9f
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:275)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1619)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Worker-Main-6" daemon prio=5 Id=21 TIMED_WAITING on java.util.concurrent.ForkJoinPool@6d1ddb9f
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@6d1ddb9f
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:275)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1619)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"Snooper Timer" daemon prio=5 Id=23 WAITING on java.util.TaskQueue@76bd16df
+	at java.base@11.0.11/java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@76bd16df
+	at java.base@11.0.11/java.lang.Object.wait(Object.java:328)
+	at java.base@11.0.11/java.util.TimerThread.mainLoop(Timer.java:527)
+	at java.base@11.0.11/java.util.TimerThread.run(Timer.java:506)
+
+
+"NonBlockingInputStreamThread" daemon prio=5 Id=25 WAITING on org.bukkit.craftbukkit.libs.jline.internal.NonBlockingInputStream@5cba545d owned by "Server console handler" Id=37
+	at java.base@11.0.11/java.lang.Object.wait(Native Method)
+	-  waiting on org.bukkit.craftbukkit.libs.jline.internal.NonBlockingInputStream@5cba545d
+	at app//org.bukkit.craftbukkit.libs.jline.internal.NonBlockingInputStream.run(NonBlockingInputStream.java:278)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+
+"Java2D Disposer" daemon prio=10 Id=27 WAITING on java.lang.ref.ReferenceQueue$Lock@ef0c7b2
+	at java.base@11.0.11/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@ef0c7b2
+	at java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	at java.desktop@11.0.11/sun.java2d.Disposer.run(Disposer.java:144)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+
+"AWT-Windows" daemon prio=6 Id=29 RUNNABLE (in native)
+	at java.desktop@11.0.11/sun.awt.windows.WToolkit.eventLoop(Native Method)
+	at java.desktop@11.0.11/sun.awt.windows.WToolkit.run(WToolkit.java:305)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+
+"AWT-Shutdown" prio=5 Id=32 WAITING on java.lang.Object@d3224d0
+	at java.base@11.0.11/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.Object@d3224d0
+	at java.base@11.0.11/java.lang.Object.wait(Object.java:328)
+	at java.desktop@11.0.11/sun.awt.AWTAutoShutdown.run(AWTAutoShutdown.java:291)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+
+"AWT-EventQueue-0" prio=6 Id=31 WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@1327c047
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@1327c047
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+	at java.base@11.0.11/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+	at java.desktop@11.0.11/java.awt.EventQueue.getNextEvent(EventQueue.java:566)
+	at java.desktop@11.0.11/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:190)
+	at java.desktop@11.0.11/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop@11.0.11/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop@11.0.11/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	...
+
+
+"TimerQueue" daemon prio=5 Id=34 TIMED_WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@15f4ef91
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@15f4ef91
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+	at java.base@11.0.11/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123)
+	at java.base@11.0.11/java.util.concurrent.DelayQueue.take(DelayQueue.java:229)
+	at java.desktop@11.0.11/javax.swing.TimerQueue.run(TimerQueue.java:171)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.locks.ReentrantLock$NonfairSync@1db166c2
+
+
+"Thread-3" daemon prio=5 Id=33 WAITING on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@97c5d5b
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject@97c5d5b
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+	at java.base@11.0.11/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081)
+	at java.base@11.0.11/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:433)
+	at app//com.mojang.util.QueueLogAppender.getNextLogEvent(QueueLogAppender.java:77)
+	at app//net.minecraft.server.v1_16_R3.ServerGUI.lambda$3(ServerGUI.java:136)
+	at app//net.minecraft.server.v1_16_R3.ServerGUI$$Lambda$3329/0x000000010097e840.run(Unknown Source)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+
+"Server thread" prio=5 Id=22 RUNNABLE
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.unpark(Native Method)
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.unpark(LockSupport.java:160)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.signalWork(ForkJoinPool.java:1493)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.externalPush(ForkJoinPool.java:1903)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.externalSubmit(ForkJoinPool.java:1921)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.execute(ForkJoinPool.java:2453)
+	at app//net.minecraft.server.v1_16_R3.ThreadedMailbox.f(SourceFile:122)
+	at app//net.minecraft.server.v1_16_R3.ThreadedMailbox.a(SourceFile:115)
+	...
+
+
+"DestroyJavaVM" prio=5 Id=36 RUNNABLE
+
+
+"TerminalConsoleWriter" daemon prio=5 Id=38 RUNNABLE
+	at app//org.fusesource.jansi.internal.Kernel32.GetConsoleScreenBufferInfo(Native Method)
+	at app//org.fusesource.jansi.WindowsAnsiOutputStream.getConsoleInfo(WindowsAnsiOutputStream.java:103)
+	at app//org.fusesource.jansi.WindowsAnsiOutputStream.processEraseLine(WindowsAnsiOutputStream.java:167)
+	at app//org.fusesource.jansi.AnsiOutputStream.processEscapeCommand(AnsiOutputStream.java:253)
+	at app//org.fusesource.jansi.AnsiOutputStream.write(AnsiOutputStream.java:125)
+	at java.base@11.0.11/java.io.FilterOutputStream.write(FilterOutputStream.java:137)
+	at java.base@11.0.11/sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:233)
+	at java.base@11.0.11/sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:312)
+	...
+
+
+"Server console handler" daemon prio=5 Id=37 RUNNABLE (in native)
+	at app//org.fusesource.jansi.internal.Kernel32.ReadConsoleInputW(Native Method)
+	at app//org.fusesource.jansi.internal.Kernel32.readConsoleInputHelper(Kernel32.java:761)
+	at app//org.fusesource.jansi.internal.Kernel32.readConsoleKeyInput(Kernel32.java:794)
+	at app//org.fusesource.jansi.internal.WindowsSupport.readConsoleInput(WindowsSupport.java:97)
+	at app//org.bukkit.craftbukkit.libs.jline.WindowsTerminal.readConsoleInput(WindowsTerminal.java:215)
+	at app//org.bukkit.craftbukkit.libs.jline.WindowsTerminal.access$000(WindowsTerminal.java:55)
+	at app//org.bukkit.craftbukkit.libs.jline.WindowsTerminal$1.read(WindowsTerminal.java:157)
+	at app//org.bukkit.craftbukkit.libs.jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:169)
+	-  locked org.bukkit.craftbukkit.libs.jline.internal.NonBlockingInputStream@5cba545d
+	...
+
+
+"ObjectCleanerThread" daemon prio=1 Id=39 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@32e574f1
+	at java.base@11.0.11/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@32e574f1
+	at java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at app//io.netty.util.internal.ObjectCleaner$1.run(ObjectCleaner.java:54)
+	at app//io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+
+"Netty Server IO #0" daemon prio=5 Id=40 RUNNABLE
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182)
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@df8d5b
+	-  locked sun.nio.ch.WindowsSelectorImpl@6b229e9e
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"Worker-Main-7" daemon prio=5 Id=42 WAITING on java.util.concurrent.ForkJoinPool@6d1ddb9f
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@6d1ddb9f
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1628)
+	at java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)
+
+
+"IO-Worker-8" prio=5 Id=43 TIMED_WAITING on java.util.concurrent.SynchronousQueue$TransferStack@6bd8a0f8
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$TransferStack@6bd8a0f8
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+	at java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462)
+	at java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+	at java.base@11.0.11/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1053)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+
+"IO-Worker-9" prio=5 Id=44 TIMED_WAITING on java.util.concurrent.SynchronousQueue$TransferStack@6bd8a0f8
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$TransferStack@6bd8a0f8
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+	at java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462)
+	at java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+	at java.base@11.0.11/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1053)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+
+"IO-Worker-12" prio=5 Id=47 TIMED_WAITING on java.util.concurrent.SynchronousQueue$TransferStack@6bd8a0f8
+	at java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.SynchronousQueue$TransferStack@6bd8a0f8
+	at java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234)
+	at java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462)
+	at java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361)
+	at java.base@11.0.11/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1053)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+
+"cling-1" prio=5 Id=48 TIMED_WAITING
+	at java.base@11.0.11/java.lang.Thread.sleep(Native Method)
+	at org.fourthline.cling.registry.RegistryMaintainer.run(RegistryMaintainer.java:54)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@3434833a
+
+
+"cling-2" prio=5 Id=49 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.TwoStacksPlainDatagramSocketImpl.receive0(Native Method)
+	-  locked java.net.TwoStacksPlainDatagramSocketImpl@7203138e
+	at java.base@11.0.11/java.net.TwoStacksPlainDatagramSocketImpl.receive(TwoStacksPlainDatagramSocketImpl.java:127)
+	-  locked java.net.TwoStacksPlainDatagramSocketImpl@7203138e
+	at java.base@11.0.11/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+	-  locked java.net.DatagramPacket@e4aedc0
+	-  locked java.net.MulticastSocket@71e354f9
+	at org.fourthline.cling.transport.impl.MulticastReceiverImpl.run(MulticastReceiverImpl.java:114)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@5ef49b72
+
+
+"server-timer" daemon prio=5 Id=50 TIMED_WAITING on java.util.TaskQueue@5f92e55d
+	at java.base@11.0.11/java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@5f92e55d
+	at java.base@11.0.11/java.util.TimerThread.mainLoop(Timer.java:553)
+	at java.base@11.0.11/java.util.TimerThread.run(Timer.java:506)
+
+
+"cling-3" prio=5 Id=51 RUNNABLE
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@420458e3
+
+
+"cling-4" prio=5 Id=52 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.TwoStacksPlainDatagramSocketImpl.receive0(Native Method)
+	-  locked java.net.TwoStacksPlainDatagramSocketImpl@35e70242
+	at java.base@11.0.11/java.net.TwoStacksPlainDatagramSocketImpl.receive(TwoStacksPlainDatagramSocketImpl.java:127)
+	-  locked java.net.TwoStacksPlainDatagramSocketImpl@35e70242
+	at java.base@11.0.11/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+	-  locked java.net.DatagramPacket@6c9acdd3
+	-  locked java.net.MulticastSocket@7b51825
+	at org.fourthline.cling.transport.impl.DatagramIOImpl.run(DatagramIOImpl.java:109)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@4e83de7d
+
+
+"HTTP-Dispatcher" prio=5 Id=53 RUNNABLE
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182)
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@4f45ad83
+	-  locked sun.nio.ch.WindowsSelectorImpl@42bd433b
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at platform/jdk.httpserver@11.0.11/sun.net.httpserver.ServerImpl$Dispatcher.run(ServerImpl.java:365)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+
+"cling-5" prio=5 Id=54 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@11ad1799
+
+
+"cling-6" prio=5 Id=55 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@65ce367
+
+
+"cling-7" prio=5 Id=56 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@6c06c945
+
+
+"cling-8" prio=5 Id=57 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@578e6d0c
+
+
+"cling-9" prio=5 Id=58 RUNNABLE
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@4c328ef6
+
+
+"cling-10" prio=5 Id=59 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@2d940bcc
+
+
+"cling-11" prio=5 Id=60 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@7702a3da
+
+
+"cling-12" prio=5 Id=61 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@53c0563b
+
+
+"cling-13" prio=5 Id=62 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@bdd378b
+
+
+"Server Watchdog" daemon prio=5 Id=63 RUNNABLE
+	at java.management@11.0.11/sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at java.management@11.0.11/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:521)
+	at java.management@11.0.11/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:509)
+	at app//net.minecraft.server.v1_16_R3.ThreadWatchdog.run(SourceFile:49)
+	at java.base@11.0.11/java.lang.Thread.run(Thread.java:834)
+
+
+"Netty Server IO #1" daemon prio=5 Id=64 RUNNABLE
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182)
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@78f3eaea
+	-  locked sun.nio.ch.WindowsSelectorImpl@5728b1e1
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"Netty Server IO #2" daemon prio=5 Id=65 RUNNABLE
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182)
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@35632732
+	-  locked sun.nio.ch.WindowsSelectorImpl@1d6f1e3e
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"Netty Server IO #3" daemon prio=5 Id=66 RUNNABLE
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182)
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@7aac13c3
+	-  locked sun.nio.ch.WindowsSelectorImpl@681912ce
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"Netty Server IO #4" daemon prio=5 Id=67 RUNNABLE (in native)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182)
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@446fe248
+	-  locked sun.nio.ch.WindowsSelectorImpl@21148a15
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"Netty Server IO #5" daemon prio=5 Id=68 RUNNABLE
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182)
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@3bbcb7ff
+	-  locked sun.nio.ch.WindowsSelectorImpl@1b134d24
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"Netty Server IO #6" daemon prio=5 Id=69 RUNNABLE
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182)
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@20d581ac
+	-  locked sun.nio.ch.WindowsSelectorImpl@2514e381
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"Netty Server IO #7" daemon prio=5 Id=70 RUNNABLE
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357)
+	at java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182)
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@7b49bb93
+	-  locked sun.nio.ch.WindowsSelectorImpl@7a32b3b3
+	at java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"cling-14" prio=5 Id=71 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@de80079
+
+
+"cling-15" prio=5 Id=72 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@69a8757
+
+
+"cling-16" prio=5 Id=73 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@6f694a4b
+
+
+"cling-17" prio=5 Id=74 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@684e47c
+
+
+"cling-18" prio=5 Id=75 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@6464e82d
+
+
+"cling-19" prio=5 Id=76 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@360f9e57
+
+
+"cling-20" prio=5 Id=77 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@35c40b14
+
+
+"cling-21" prio=5 Id=78 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@47729794
+
+
+"cling-22" prio=5 Id=79 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@54ca63ec
+
+
+"cling-23" prio=5 Id=80 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@450df549
+
+
+"cling-24" prio=5 Id=81 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@5ada2474
+
+
+"cling-25" prio=5 Id=82 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@2332f169
+
+
+"cling-26" prio=5 Id=83 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@246023e0
+
+
+"cling-27" prio=5 Id=84 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@e6d2d98
+
+
+"cling-28" prio=5 Id=85 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@59f51a5
+
+
+"cling-29" prio=5 Id=86 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@319251c6
+
+
+"cling-30" prio=5 Id=87 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@14481b37
+
+
+"cling-31" prio=5 Id=88 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@732ef5cb
+
+
+"cling-32" prio=5 Id=89 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@cc39072
+
+
+"cling-33" prio=5 Id=90 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@2ffcfc4d
+
+
+"cling-34" prio=5 Id=91 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@7b39db26
+
+
+"cling-35" prio=5 Id=92 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@7fbde927
+
+
+"cling-36" prio=5 Id=93 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@6f6db6a2
+
+
+"cling-37" prio=5 Id=94 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@7e99515f
+
+
+"cling-38" prio=5 Id=95 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@1de18bee
+
+
+"cling-39" prio=5 Id=96 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@4f71fbe4
+
+
+"cling-40" prio=5 Id=97 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@4c18ffaf
+
+
+"cling-41" prio=5 Id=98 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@783f4cda
+
+
+"cling-42" prio=5 Id=99 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@691006c8
+
+
+"cling-43" prio=5 Id=100 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@29fe6ed5
+
+
+"cling-44" prio=5 Id=101 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@229019c2
+
+
+"cling-45" prio=5 Id=102 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@38fea52b
+
+
+"cling-46" prio=5 Id=103 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@204bd8d6
+
+
+"cling-47" prio=5 Id=104 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@4904ac51
+
+
+"cling-48" prio=5 Id=105 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@13d6fb62
+
+
+"cling-49" prio=5 Id=106 RUNNABLE (in native)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method)
+	at java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339)
+	at org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172)
+	at org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230)
+	at org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98)
+	at org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	...
+
+	Number of locked synchronizers = 1
+	- java.util.concurrent.ThreadPoolExecutor$Worker@312abed3
+
+
+
+Stacktrace:
+	at net.minecraft.server.v1_16_R3.ThreadWatchdog.run(SourceFile:65)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+-- Performance stats --
+Details:
+	Random tick rate: 3
+	Level stats: ResourceKey[minecraft:dimension / minecraft:overworld]: players: 1, entities: 164 [minecraft:item:28,minecraft:skeleton:21,minecraft:creeper:21,minecraft:cod:20,minecraft:bat:16], block_entities: 20 [minecraft:chest:10,minecraft:mob_spawner:9,minecraft:beehive:1], block_ticks: 545, fluid_ticks: 12843, chunk_source: ServerChunkCache: 2114,
+ResourceKey[minecraft:dimension / minecraft:the_nether]: players: 0, entities: 27 [minecraft:strider:25,minecraft:zombified_piglin:2], block_entities: 1 [minecraft:chest:1], block_ticks: 0, fluid_ticks: 1001, chunk_source: ServerChunkCache: 2025,
+ResourceKey[minecraft:dimension / minecraft:the_end]: players: 0, entities: 10 [minecraft:end_crystal:10], block_entities: 0 [], block_ticks: 10, fluid_ticks: 0, chunk_source: ServerChunkCache: 2025
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 11.0.11, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 226206208 bytes (215 MB) / 1132462080 bytes (1080 MB) up to 2124414976 bytes (2026 MB)
+	CPUs: 4
+	JVM Flags: 0 total; 
+	CraftBukkit Information: 
+   Running: CraftBukkit version 2991-Bukkit-f3f3094 (MC: 1.16.5) (Implementing API version 1.16.5-R0.1-SNAPSHOT) false
+   Plugins: { minepy v1.0 Main.Main [], PortMinerPlugin v1.3* com.lnicf.PortMinerPlugin.PortMinerPlugin [lnicf],}
+   Warnings: DEFAULT
+   Reload Count: 0
+   Threads: { RUNNABLE Attach Listener: [], TIMED_WAITING server-timer: [java.base@11.0.11/java.lang.Object.wait(Native Method), java.base@11.0.11/java.util.TimerThread.mainLoop(Timer.java:553), java.base@11.0.11/java.util.TimerThread.run(Timer.java:506)], RUNNABLE cling-5: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-25: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Server console handler: [app//org.fusesource.jansi.internal.Kernel32.ReadConsoleInputW(Native Method), app//org.fusesource.jansi.internal.Kernel32.readConsoleInputHelper(Kernel32.java:761), app//org.fusesource.jansi.internal.Kernel32.readConsoleKeyInput(Kernel32.java:794), app//org.fusesource.jansi.internal.WindowsSupport.readConsoleInput(WindowsSupport.java:97), app//org.bukkit.craftbukkit.libs.jline.WindowsTerminal.readConsoleInput(WindowsTerminal.java:215), app//org.bukkit.craftbukkit.libs.jline.WindowsTerminal.access$000(WindowsTerminal.java:55), app//org.bukkit.craftbukkit.libs.jline.WindowsTerminal$1.read(WindowsTerminal.java:157), app//org.bukkit.craftbukkit.libs.jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:169), app//org.bukkit.craftbukkit.libs.jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:137), app//org.bukkit.craftbukkit.libs.jline.internal.NonBlockingInputStream.read(NonBlockingInputStream.java:246), app//org.bukkit.craftbukkit.libs.jline.internal.InputStreamReader.read(InputStreamReader.java:261), app//org.bukkit.craftbukkit.libs.jline.internal.InputStreamReader.read(InputStreamReader.java:198), app//org.bukkit.craftbukkit.libs.jline.console.ConsoleReader.readCharacter(ConsoleReader.java:2145), app//org.bukkit.craftbukkit.libs.jline.console.ConsoleReader.readLine(ConsoleReader.java:2349), app//net.minecraft.server.v1_16_R3.DedicatedServer$1.run(DedicatedServer.java:80)], RUNNABLE Netty Server IO #7: [java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182), java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124), java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136), app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756), app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411), app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-37: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-39: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-10: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-22: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-24: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-40: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], WAITING NonBlockingInputStreamThread: [java.base@11.0.11/java.lang.Object.wait(Native Method), app//org.bukkit.craftbukkit.libs.jline.internal.NonBlockingInputStream.run(NonBlockingInputStream.java:278), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-48: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE DestroyJavaVM: [], TIMED_WAITING Worker-Main-7: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:275), java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1619), java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)], TIMED_WAITING IO-Worker-9: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234), java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462), java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361), java.base@11.0.11/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1053), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-16: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-46: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], TIMED_WAITING Common-Cleaner: [java.base@11.0.11/java.lang.Object.wait(Native Method), java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155), java.base@11.0.11/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:148), java.base@11.0.11/java.lang.Thread.run(Thread.java:834), java.base@11.0.11/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:134)], RUNNABLE cling-15: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], TIMED_WAITING ObjectCleanerThread: [java.base@11.0.11/java.lang.Object.wait(Native Method), java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155), app//io.netty.util.internal.ObjectCleaner$1.run(ObjectCleaner.java:54), app//io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Netty Server IO #0: [java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182), java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124), java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136), app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756), app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411), app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-30: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Netty Server IO #1: [java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182), java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124), java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136), app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756), app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411), app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], WAITING Snooper Timer: [java.base@11.0.11/java.lang.Object.wait(Native Method), java.base@11.0.11/java.lang.Object.wait(Object.java:328), java.base@11.0.11/java.util.TimerThread.mainLoop(Timer.java:527), java.base@11.0.11/java.util.TimerThread.run(Timer.java:506)], RUNNABLE Netty Server IO #3: [java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182), java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124), java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136), app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756), app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411), app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], TIMED_WAITING Timer hack thread: [java.base@11.0.11/java.lang.Thread.sleep(Native Method), app//net.minecraft.server.v1_16_R3.SystemUtils$6.run(SourceFile:636)], RUNNABLE cling-7: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-44: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Signal Dispatcher: [], RUNNABLE cling-36: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-31: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], TIMED_WAITING TimerQueue: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234), java.base@11.0.11/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2123), java.base@11.0.11/java.util.concurrent.DelayQueue.take(DelayQueue.java:229), java.desktop@11.0.11/javax.swing.TimerQueue.run(TimerQueue.java:171), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-12: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-32: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-41: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-34: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], TIMED_WAITING IO-Worker-8: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234), java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462), java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361), java.base@11.0.11/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1053), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-13: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-45: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], TIMED_WAITING Worker-Bootstrap-2: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:275), java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1619), java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)], RUNNABLE cling-35: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-4: [java.base@11.0.11/java.net.TwoStacksPlainDatagramSocketImpl.receive0(Native Method), java.base@11.0.11/java.net.TwoStacksPlainDatagramSocketImpl.receive(TwoStacksPlainDatagramSocketImpl.java:127), java.base@11.0.11/java.net.DatagramSocket.receive(DatagramSocket.java:814), org.fourthline.cling.transport.impl.DatagramIOImpl.run(DatagramIOImpl.java:109), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], WAITING Java2D Disposer: [java.base@11.0.11/java.lang.Object.wait(Native Method), java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155), java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176), java.desktop@11.0.11/sun.java2d.Disposer.run(Disposer.java:144), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-29: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Netty Server IO #5: [java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182), java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124), java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136), app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756), app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411), app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE AWT-Windows: [java.desktop@11.0.11/sun.awt.windows.WToolkit.eventLoop(Native Method), java.desktop@11.0.11/sun.awt.windows.WToolkit.run(WToolkit.java:305), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Server thread: [app//net.minecraft.server.v1_16_R3.ChunkProviderServer.getChunkFutureMainThread(ChunkProviderServer.java:212), app//net.minecraft.server.v1_16_R3.ChunkProviderServer.getChunkAt(ChunkProviderServer.java:118), app//net.minecraft.server.v1_16_R3.World.getChunkAt(World.java:202), app//net.minecraft.server.v1_16_R3.IWorldReader.getChunkAt(SourceFile:128), app//net.minecraft.server.v1_16_R3.World.getChunkAt(World.java:197), app//net.minecraft.server.v1_16_R3.World.getType(World.java:495), app//net.minecraft.server.v1_16_R3.SpawnerCreature.a(SpawnerCreature.java:295), app//net.minecraft.server.v1_16_R3.SpawnerCreature.a(SpawnerCreature.java:291), app//net.minecraft.server.v1_16_R3.SpawnerCreature.a(SpawnerCreature.java:246), app//net.minecraft.server.v1_16_R3.SpawnerCreature.a(SpawnerCreature.java:184), app//net.minecraft.server.v1_16_R3.SpawnerCreature.a(SpawnerCreature.java:135), app//net.minecraft.server.v1_16_R3.SpawnerCreature.a(SpawnerCreature.java:120), app//net.minecraft.server.v1_16_R3.ChunkProviderServer.lambda$9(ChunkProviderServer.java:388), app//net.minecraft.server.v1_16_R3.ChunkProviderServer$$Lambda$4013/0x0000000100cdd840.accept(Unknown Source), java.base@11.0.11/java.util.ArrayList.forEach(ArrayList.java:1541), app//net.minecraft.server.v1_16_R3.ChunkProviderServer.tickChunks(ChunkProviderServer.java:372), app//net.minecraft.server.v1_16_R3.ChunkProviderServer.tick(ChunkProviderServer.java:342), app//net.minecraft.server.v1_16_R3.WorldServer.doTick(WorldServer.java:332), app//net.minecraft.server.v1_16_R3.MinecraftServer.b(MinecraftServer.java:1046), app//net.minecraft.server.v1_16_R3.DedicatedServer.b(DedicatedServer.java:342), app//net.minecraft.server.v1_16_R3.MinecraftServer.a(MinecraftServer.java:964), app//net.minecraft.server.v1_16_R3.MinecraftServer.w(MinecraftServer.java:812), app//net.minecraft.server.v1_16_R3.MinecraftServer.lambda$0(MinecraftServer.java:155), app//net.minecraft.server.v1_16_R3.MinecraftServer$$Lambda$3232/0x00000001008d0040.run(Unknown Source), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-20: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-6: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-14: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-2: [java.base@11.0.11/java.net.TwoStacksPlainDatagramSocketImpl.receive0(Native Method), java.base@11.0.11/java.net.TwoStacksPlainDatagramSocketImpl.receive(TwoStacksPlainDatagramSocketImpl.java:127), java.base@11.0.11/java.net.DatagramSocket.receive(DatagramSocket.java:814), org.fourthline.cling.transport.impl.MulticastReceiverImpl.run(MulticastReceiverImpl.java:114), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-43: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], WAITING TerminalConsoleWriter: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194), java.base@11.0.11/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081), java.base@11.0.11/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:433), app//com.mojang.util.QueueLogAppender.getNextLogEvent(QueueLogAppender.java:77), app//org.bukkit.craftbukkit.v1_16_R3.util.TerminalConsoleWriterThread.run(TerminalConsoleWriterThread.java:31)], RUNNABLE cling-19: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-21: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Netty Server IO #2: [java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182), java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124), java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136), app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756), app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411), app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Netty Server IO #6: [java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182), java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124), java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136), app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756), app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411), app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-38: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], TIMED_WAITING Worker-Main-4: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkUntil(LockSupport.java:275), java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1619), java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)], RUNNABLE cling-49: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], WAITING Worker-Bootstrap-1: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194), java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1628), java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)], WAITING Thread-3: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194), java.base@11.0.11/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081), java.base@11.0.11/java.util.concurrent.LinkedBlockingQueue.take(LinkedBlockingQueue.java:433), app//com.mojang.util.QueueLogAppender.getNextLogEvent(QueueLogAppender.java:77), app//net.minecraft.server.v1_16_R3.ServerGUI.lambda$3(ServerGUI.java:136), app//net.minecraft.server.v1_16_R3.ServerGUI$$Lambda$3329/0x000000010097e840.run(Unknown Source), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-26: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-23: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-11: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], WAITING Worker-Main-6: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194), java.base@11.0.11/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1628), java.base@11.0.11/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:183)], RUNNABLE HTTP-Dispatcher: [java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182), java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124), java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136), platform/jdk.httpserver@11.0.11/sun.net.httpserver.ServerImpl$Dispatcher.run(ServerImpl.java:365), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-9: [java.base@11.0.11/java.net.NetworkInterface.getMacAddr0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getHardwareAddress(NetworkInterface.java:516), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:173), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-42: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-33: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], TIMED_WAITING cling-1: [java.base@11.0.11/java.lang.Thread.sleep(Native Method), org.fourthline.cling.registry.RegistryMaintainer.run(RegistryMaintainer.java:54), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-17: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-3: [java.base@11.0.11/java.net.NetworkInterface.getMacAddr0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getHardwareAddress(NetworkInterface.java:516), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:173), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-28: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], WAITING AWT-EventQueue-0: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194), java.base@11.0.11/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:2081), java.desktop@11.0.11/java.awt.EventQueue.getNextEvent(EventQueue.java:566), java.desktop@11.0.11/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:190), java.desktop@11.0.11/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124), java.desktop@11.0.11/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113), java.desktop@11.0.11/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109), java.desktop@11.0.11/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101), java.desktop@11.0.11/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)], WAITING Finalizer: [java.base@11.0.11/java.lang.Object.wait(Native Method), java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155), java.base@11.0.11/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176), java.base@11.0.11/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:170)], RUNNABLE cling-18: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], WAITING AWT-Shutdown: [java.base@11.0.11/java.lang.Object.wait(Native Method), java.base@11.0.11/java.lang.Object.wait(Object.java:328), java.desktop@11.0.11/sun.awt.AWTAutoShutdown.run(AWTAutoShutdown.java:291), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Server Watchdog: [java.base@11.0.11/java.lang.Thread.dumpThreads(Native Method), java.base@11.0.11/java.lang.Thread.getAllStackTraces(Thread.java:1657), app//org.bukkit.craftbukkit.v1_16_R3.CraftCrashReport.call(CraftCrashReport.java:33), app//net.minecraft.server.v1_16_R3.CrashReportSystemDetails.a(SourceFile:79), app//net.minecraft.server.v1_16_R3.CrashReport.i(CrashReport.java:71), app//net.minecraft.server.v1_16_R3.CrashReport.<init>(CrashReport.java:35), app//net.minecraft.server.v1_16_R3.ThreadWatchdog.run(SourceFile:63), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Reference Handler: [java.base@11.0.11/java.lang.ref.Reference.waitForReferencePendingList(Native Method), java.base@11.0.11/java.lang.ref.Reference.processPendingReferences(Reference.java:241), java.base@11.0.11/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:213)], RUNNABLE cling-8: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], TIMED_WAITING IO-Worker-12: [java.base@11.0.11/jdk.internal.misc.Unsafe.park(Native Method), java.base@11.0.11/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:234), java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:462), java.base@11.0.11/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:361), java.base@11.0.11/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:937), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1053), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1114), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-47: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE Netty Server IO #4: [java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:357), java.base@11.0.11/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:182), java.base@11.0.11/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124), java.base@11.0.11/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136), app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756), app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411), app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)], RUNNABLE cling-27: [java.base@11.0.11/java.net.NetworkInterface.getByInetAddress0(Native Method), java.base@11.0.11/java.net.NetworkInterface.getByInetAddress(NetworkInterface.java:339), org.fourthline.cling.transport.impl.NetworkAddressFactoryImpl.getHardwareAddress(NetworkAddressFactoryImpl.java:172), org.fourthline.cling.transport.RouterImpl.getActiveStreamServers(RouterImpl.java:230), org.fourthline.cling.protocol.async.ReceivingSearch.execute(ReceivingSearch.java:98), org.fourthline.cling.protocol.ReceivingAsync.run(ReceivingAsync.java:71), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128), java.base@11.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628), java.base@11.0.11/java.lang.Thread.run(Thread.java:834)],}
+   Recent tasks from 39-69{}
+   Force Loaded Chunks: { world: {}, world_nether: {}, world_the_end: {},}
+	Player Count: 1 / 20; [EntityPlayer['elbert'/225, l='ServerLevel[world]', x=114.50, y=65.00, z=-172.50](elbert at 114.5,65.0,-172.5)]
+	Data Packs: vanilla, file/bukkit
+	Is Modded: Definitely; Server brand changed to 'CraftBukkit'
+	Type: Dedicated Server (map_server.txt)

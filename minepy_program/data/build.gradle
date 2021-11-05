@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'application'
+java {
+	sourceCompatibility = JavaVersion.VERSION_11
+	targetCompatibility = JavaVersion.VERSION_11
+}
+version = '1.0.0'
+mainClassName = 'Main'
+jar {
+	manifest {
+		attributes "Main-Class":"$mainClassName"
+	}
+}
+dependencies {
+	implementation files("craftbukkit-1.16.5.jar")
+}
+
